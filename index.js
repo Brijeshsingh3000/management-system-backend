@@ -17,7 +17,7 @@ const corsOptions = {
   credentials: true, // If you need to send cookies
 };
 
-app.use(cors())
+app.use(cors(corsOptions))
 
 mongoose
     .connect(process.env.MONGO_URL, {
