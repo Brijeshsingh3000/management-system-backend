@@ -11,7 +11,7 @@ dotenv.config();
 
 app.use(express.json({ limit: '10mb' }))
 const corsOptions = {
-  origin: 'https://school-managment-system-kappa.vercel.app',
+  origin: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // If you need to send cookies
