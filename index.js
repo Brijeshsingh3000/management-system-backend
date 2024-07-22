@@ -11,15 +11,10 @@ dotenv.config();
 
 // CORS configuration to allow all origins
 app.use(cors({
-  origin: true, // This allows all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // If you need to send cookies
-}));
+    origin: 'http://localhost:3000',
+    credentials: true,
 
-// Handle preflight requests
-app.options('*', cors());
-
+}))
 
 mongoose
     .connect(process.env.MONGO_URL, {
