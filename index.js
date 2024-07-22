@@ -9,15 +9,17 @@ const PORT = process.env.PORT
 
 dotenv.config();
 
-app.use(express.json({ limit: '10mb' }))
-const corsOptions = {
-  origin: true,
+// CORS configuration to allow all origins
+app.use(cors({
+  origin: true, // This allows all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // If you need to send cookies
-};
+}));
 
-app.use(cors(corsOptions))
+// Handle preflight requests
+app.options('*', cors());
+
 
 mongoose
     .connect(process.env.MONGO_URL, {
